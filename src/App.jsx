@@ -1,7 +1,9 @@
+import HomePage from "./components/templates/homePage"
+
 function App() {
 
   return (
-    <h1>Cryptp App</h1>
+    <HomePage/>
   )
 }
 
