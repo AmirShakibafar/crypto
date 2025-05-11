@@ -5,6 +5,9 @@ import { getApiKey, getCointList } from "../../services/cryptoAPI";
 
 function HomePage() {
   const [coins, setCoins] = useState([]);
+  const [isLoading, setisLoading] = useState(true);
+
+
   useEffect(() => {
     const options = {
       method: "GET",
@@ -22,12 +25,13 @@ function HomePage() {
       .request(options)
       .then((response) => {
         setCoins(response.data)
+        setisLoading(false);
       })
       .catch((error) => {
         console.error(error);
       });
   }, []);
-  return <TableCoin coins={coins}/>;
+  return <TableCoin coins={coins} isLoading={isLoading}/>;
 }
 
 export default HomePage;
