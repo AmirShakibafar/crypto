@@ -6,8 +6,11 @@ import Pagination from "../modules/Pagination"
 function HomePage() {
   const [coins, setCoins] = useState([]);
   const [isLoading, setisLoading] = useState(true);
+  const [page, setPage] = useState(1);
+
 
   useEffect(() => {
+    setisLoading(true);
     const options = {
       method: "GET",
       url: getCointList(),
@@ -17,6 +20,8 @@ function HomePage() {
       },
       params: {
         vs_currency: "usd",
+        page: page,
+        per_page:20
       },
     };
 
@@ -29,11 +34,11 @@ function HomePage() {
       .catch((error) => {
         console.error(error);
       });
-  }, []);
+  }, [page]);
   return (
     <div>
-      <Pagination/>
-      <TableCoin coins={coins} isLoading={isLoading} />
+      <Pagination page={page} setPage={setPage} />
+      <TableCoin coins={coins} isLoading={isLoading}/>
     </div>
   );
 }
