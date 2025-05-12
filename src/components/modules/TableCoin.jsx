@@ -3,7 +3,7 @@ import chartDown from "../../assets/chart-down.svg";
 import { Circles } from "react-loader-spinner";
 import styles from "./TableCoin.module.css";
 
-function TableCoin({ coins, isLoading }) {
+function TableCoin({ coins, isLoading, setChart }) {
   console.log(coins);
 
   return (
@@ -24,7 +24,7 @@ function TableCoin({ coins, isLoading }) {
           </thead>
           <tbody>
             {coins.map((coin) => (
-              <TableRow coin={coin} key={coin.id} />
+              <TableRow coin={coin} key={coin.id} setChart={setChart}/>
             ))}
           </tbody>
         </table>
@@ -45,11 +45,15 @@ const TableRow = ({
     total_volume,
     id,
   },
+  setChart
 }) => {
+  const showHandler = () => {
+    setChart(true);
+  }
   return (
     <tr key={id}>
       <td>
-        <div className={styles.symbol}>
+        <div className={styles.symbol} onClick={showHandler}>
           <img src={image} alt="" />
           <span>{symbol.toUpperCase()}</span>
         </div>
