@@ -1,16 +1,19 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { searchCoin, getApiKey } from "../../services/cryptoAPI";
-
+import { Circles } from "react-loader-spinner";
+import styles from "./Search.module.css";
 function Search({ currency, setCurrency }) {
   const [text, setText] = useState("");
   const [coins, setCoins] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const controller = new AbortController(); // Use AbortController to cancel the request
 
     const search = async () => {
       try {
+        setIsLoading(true);
         const options = {
           method: "GET",
           url: searchCoin(),
@@ -21,14 +24,15 @@ function Search({ currency, setCurrency }) {
           params: {
             query: text,
           },
-          signal: controller.signal, // Attach signal for cancellation
+          signal: controller.signal,
         };
 
         const response = await axios.request(options);
         if (response.data.coins) {
-            setCoins(response.data.coins)
+          setIsLoading(false);
+          setCoins(response.data.coins);
         } else {
-            alert(response.status.error_message)
+          alert(response.status.error_message);
         }
       } catch (error) {
         if (axios.isCancel(error)) {
@@ -41,9 +45,11 @@ function Search({ currency, setCurrency }) {
 
     if (text) {
       search();
+    } else {
+      setIsLoading(false);
+      setCoins([]);
     }
 
-  
     return () => {
       controller.abort();
     };
@@ -54,7 +60,7 @@ function Search({ currency, setCurrency }) {
   };
 
   return (
-    <div>
+    <div className={styles.searchBox}>
       <input
         type="text"
         placeholder="Search for a coin (results in console)..."
@@ -66,6 +72,19 @@ function Search({ currency, setCurrency }) {
         <option value="eur">EUR</option>
         <option value="jpy">JPY</option>
       </select>
+      {(!!coins.length || isLoading) && (
+        <div className={styles.searchResult}>
+          {isLoading && <Circles height="30" width="30" color="#4fa94d" />}
+          <ul>
+            {coins.map((coin) => (
+              <li key={coin.id}>
+                <img src={coin.thumb} alt={coin.name} />
+                <p>{coin.name}</p>
+              </li>
+            ))}
+          </ul>
+        </div> 
+      )}
     </div>
   );
 }
