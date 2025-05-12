@@ -4,7 +4,11 @@ const getCointList = () => {
     return `${BASE_URL}/coins/markets`;
 }
 
+const searchCoin = () => {
+    return `${BASE_URL}/search`;
+}
+
 const getApiKey = () => {
     return API_KEY;
 }
-export {getCointList, getApiKey}
+export {getCointList, getApiKey, searchCoin}

@@ -3,6 +3,7 @@ import axios from "axios";
 import TableCoin from "../modules/TableCoin";
 import { getApiKey, getCointList } from "../../services/cryptoAPI";
 import Pagination from "../modules/Pagination"
+import Search from "../modules/Search";
 function HomePage() {
   const [coins, setCoins] = useState([]);
   const [isLoading, setisLoading] = useState(true);
@@ -37,6 +38,7 @@ function HomePage() {
   }, [page]);
   return (
     <div>
+      <Search/>
       <TableCoin coins={coins} isLoading={isLoading}/>
       <Pagination page={page} setPage={setPage} />
 
