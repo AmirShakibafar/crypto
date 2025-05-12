@@ -8,6 +8,7 @@ function HomePage() {
   const [coins, setCoins] = useState([]);
   const [isLoading, setisLoading] = useState(true);
   const [page, setPage] = useState(1);
+  const [currency, setCurrency] = useState("usd");
 
 
   useEffect(() => {
@@ -20,7 +21,7 @@ function HomePage() {
         "x-cg-demo-api-key": getApiKey(),
       },
       params: {
-        vs_currency: "usd",
+        vs_currency: currency,
         page: page,
         per_page:20
       },
@@ -35,10 +36,10 @@ function HomePage() {
       .catch((error) => {
         console.error(error);
       });
-  }, [page]);
+  }, [page, currency]);
   return (
     <div>
-      <Search/>
+      <Search currency={currency} setCurrency={setCurrency}/>
       <TableCoin coins={coins} isLoading={isLoading}/>
       <Pagination page={page} setPage={setPage} />
 

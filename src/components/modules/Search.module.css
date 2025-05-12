@@ -3,7 +3,7 @@
   position: relative;
 }
 
-.searchBox input {
+.searchBox input, .searchBox select {
     width: 300px;
     height: 50px;
     padding: 10px;
@@ -12,6 +12,11 @@
     background-color: #23242e;
     border: none;
     border-radius: 5px;
+}
+
+.searchBox select {
+    width: 100px;
+    margin-left: 20px;
 }
 
 .searchBox select:focus {
