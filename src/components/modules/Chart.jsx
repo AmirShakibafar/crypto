@@ -1,4 +1,5 @@
 import styles from "./Chart.module.css"
+
 function Chart({chart, setChart}) {
   return (
     <div className={styles.container}>

@@ -1,6 +1,5 @@
 import styles from "./Pagination.module.css"
 function Pagination({page, setPage}) {
-  console.log(page)
   const prevHandler = () => {
     if (page == 1) return;
     setPage((page) => page - 1);

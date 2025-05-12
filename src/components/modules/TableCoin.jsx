@@ -2,9 +2,9 @@ import chartUp from "../../assets/chart-up.svg";
 import chartDown from "../../assets/chart-down.svg";
 import { Circles } from "react-loader-spinner";
 import styles from "./TableCoin.module.css";
+import { marketChart } from "../../services/cryptoAPI";
 
 function TableCoin({ coins, isLoading, setChart }) {
-  console.log(coins);
 
   return (
     <div className={styles.container}>
@@ -24,7 +24,7 @@ function TableCoin({ coins, isLoading, setChart }) {
           </thead>
           <tbody>
             {coins.map((coin) => (
-              <TableRow coin={coin} key={coin.id} setChart={setChart}/>
+              <TableRow coin={coin} key={coin.id} setChart={setChart} />
             ))}
           </tbody>
         </table>
@@ -45,30 +45,37 @@ const TableRow = ({
     total_volume,
     id,
   },
-  setChart
+  setChart,
 }) => {
-  const showHandler = () => {
+  const showHandler = async (id) => {
     setChart(true);
-  }
+    try {
+      const res = await fetch(marketChart(id));
+      const json = await res.json();
+      console.log(json);
+      setChart(json)
+      
+    } catch (e) {
+      console.log(e);
+      setChart(null)
+
+    }
+  };
   return (
     <tr key={id}>
       <td>
-        <div className={styles.symbol} onClick={showHandler}>
+        <div className={styles.symbol} onClick={() => showHandler(id)}>
           <img src={image} alt="" />
           <span>{symbol.toUpperCase()}</span>
         </div>
       </td>
       <td>{name}</td>
       <td>{current_price.toLocaleString()}</td>
-      <td className={price_change > 0 ? styles.success : styles.error}>{price_change.toFixed(2)}%</td>
-      <td>{total_volume.toLocaleString()}</td>
-      <td>
-        {
-          <img
-            src={price_change.toFixed(2) > 0 ? chartUp : chartDown}
-          />
-        }
+      <td className={price_change > 0 ? styles.success : styles.error}>
+        {price_change.toFixed(2)}%
       </td>
+      <td>{total_volume.toLocaleString()}</td>
+      <td>{<img src={price_change.toFixed(2) > 0 ? chartUp : chartDown} />}</td>
     </tr>
   );
 };
