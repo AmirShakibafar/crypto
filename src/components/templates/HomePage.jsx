@@ -5,6 +5,7 @@ import { getApiKey, getCointList } from "../../services/cryptoAPI";
 import Pagination from "../modules/Pagination"
 import Search from "../modules/Search";
 import Chart from "../modules/Chart";
+// Removed import styles from "./HomePage.module.css"; - Styles are now in Layout
 
 
 function HomePage() {
@@ -42,12 +43,13 @@ function HomePage() {
       });
   }, [page, currency]);
   return (
-    <div>
+    // Removed outer div, header and footer. Layout component will provide these.
+    <>
       <Search currency={currency} setCurrency={setCurrency}/>
       <TableCoin coins={coins} isLoading={isLoading} setChart={setChart}/>
       <Pagination page={page} setPage={setPage} />
       {!!chart && <Chart chart={chart} setChart={setChart}/>}
-    </div>
+    </>
   );
 }
 

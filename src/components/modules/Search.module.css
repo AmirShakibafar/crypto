@@ -3,56 +3,55 @@
   position: relative;
 }
 
-.searchBox input, .searchBox select {
-    width: 300px;
-    height: 50px;
-    padding: 10px;
-    font-size: 1.1rem;
-    color: #fff;
-    background-color: #23242e;
-    border: none;
-    border-radius: 5px;
+.searchBox input,
+.searchBox select {
+  width: 300px;
+  height: 50px;
+  padding: 10px;
+  font-size: 1.1rem;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
 }
 
 .searchBox select {
-    width: 100px;
-    margin-left: 20px;
+  width: 100px;
+  margin-left: 20px;
 }
 
 .searchBox select:focus {
-    outline: none;
+  outline: none;
 }
 
 .searchResult {
-    position: absolute;
-    top: 60px;
-    text-align: center;
-    width: 300px;
-    height: 400px;
-    border-radius: 5px;
-    overflow-y: scroll;
-    background-color: #18181c;
-    border: 2px solid #23242e;
-    padding: 20px;
+  position: absolute;
+  top: 60px;
+  text-align: center;
+  width: 300px;
+  height: 400px;
+  border-radius: 5px;
+  overflow-y: scroll;
+  background-color: #18181c;
+  border: 2px solid #23242e;
+  padding: 20px;
 }
 
-
 ::-webkit-scrollbar {
-    width: 0;
-    background: transparent;
+  width: 0;
+  background: transparent;
 }
 
 .searchResult li {
-    list-style: none;
-    display: flex;
-    margin-bottom: 15px;
-    padding-bottom: 5px;
-    border-bottom: 2px solid #23242e;
+  list-style: none;
+  display: flex;
+  margin-bottom: 15px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid #23242e;
 }
 
 .searchResult li img {
-    margin-right: 10px;
-    width: 25px;
-    height: 25px;
-
+  margin-right: 10px;
+  width: 25px;
+  height: 25px;
 }

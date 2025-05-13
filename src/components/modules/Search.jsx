@@ -63,7 +63,7 @@ function Search({ currency, setCurrency }) {
     <div className={styles.searchBox}>
       <input
         type="text"
-        placeholder="Search for a coin (results in console)..."
+        placeholder="Search for a coin"
         value={text}
         onChange={handleChange}
       />

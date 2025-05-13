@@ -1,0 +1,198 @@
+/* :root variables and body styles moved to global.css */
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto; 
+  margin-right: auto; 
+  padding: 0 20px;
+}
+
+.containerHero {
+  height: 50vh;
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+}
+
+.header {
+  padding: 120px 0;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.heroContent {
+  flex: 1;
+}
+
+.heroImage {
+  width: 500px;
+  height: auto;
+  object-fit: contain;
+  animation: float 3s ease-in-out infinite;
+}
+
+.heroTitle {
+  margin: 0 0 15px 0;
+  font-size: 5.5rem;
+  color: var(--accent-color);
+  font-weight: 800;
+  line-height: 1.1;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.heroSubtitle {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+  max-width: 600px;
+}
+/* Add to your existing styles */
+
+.buttonGroup {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 2rem;
+  background-color: var(--accent-color);
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 2px solid transparent;
+}
+
+.githubButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  background-color: #333;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 2px solid transparent;
+}
+
+.githubIcon {
+  margin-right: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.ctaButton:hover {
+  background-color: transparent;
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.githubButton:hover {
+  background-color: transparent;
+  color: #333;
+  border-color: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.ctaButton:active,
+.githubButton:active {
+  transform: translateY(0);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .buttonGroup {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .ctaButton,
+  .githubButton {
+    width: 100%;
+    justify-content: center;
+  }
+}
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .heroImage {
+    width: 150px;
+  }
+
+  .heroTitle {
+    font-size: 2.5rem;
+  }
+
+  .heroSubtitle {
+    font-size: 1.2rem;
+  }
+}
+.main {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  min-height: calc(
+    100vh - 265px
+  ); 
+}
+
+.footer {
+  padding-top: 25px;
+  padding-bottom: 25px;
+  border-top: 1px solid var(--border-color);
+  margin-top: 50px;
+  background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+}
+
+.footer p {
+  margin: 5px 0;
+  font-size: 0.9rem;
+  text-align: center; /* Center align footer text */
+}
+
+.footer a {
+  color: var(--accent-color); /* Keep specific link style for footer */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+

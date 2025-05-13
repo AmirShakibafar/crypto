@@ -7,7 +7,7 @@ import { marketChart } from "../../services/cryptoAPI";
 function TableCoin({ coins, isLoading, setChart }) {
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} id="market">
       {isLoading ? (
         <Circles height="80" width="80" color="#4fa94d" />
       ) : (

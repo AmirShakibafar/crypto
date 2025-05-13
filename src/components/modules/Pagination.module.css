@@ -1,34 +1,60 @@
 .pagination {
-    width: 400px;
+    width: 100%;
+    max-width: 400px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: auto;
-    margin-bottom: 100px;
+    margin: 2rem auto;
+    gap: 0.5rem;
 }
 
 .pagination button {
-    width: 80px;
-    background-color: #3874ff;
+    flex: 1;
+    max-width: 100px;
+    background-color: var(--accent-color);
     color: #fff;
     border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
     font-size: 1rem;
     cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 600;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.pagination button:hover:not(:disabled) {
+    background-color: var(--accent-hover); /* You might want to define this */
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.pagination button:active:not(:disabled) {
+    transform: translateY(0);
 }
 
 .pagination p {
-    border: 1px solid #3874ff;
-    width: 25px;
+    flex: 0.5;
+    max-width: 40px;
     text-align: center;
-    border-radius: 5px;
+    border-radius: 8px;
+    font-weight: 600;
+    padding: 0.5rem 0;
+    transition: all 0.2s ease;
+    border: 2px solid var(--accent-color);
+    color: var(--text-primary);
 }
 
 .disabled {
-    opacity: 0.3;
+    opacity: 0.5;
+    cursor: not-allowed;
+    box-shadow: none !important;
+    transform: none !important;
 }
+
 .selected {
-    background-color: #3874ff;
+    background-color: var(--accent-color);
     color: #fff;
+    border-color: var(--accent-color);
 }
+

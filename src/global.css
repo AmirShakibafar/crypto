@@ -1,24 +1,31 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
+  --background-primary: #1a1a1a;
+  --background-secondary: #2c2c2c;
+  --text-primary: #e0e0e0;
+  --text-secondary: #a0a0a0;
+  --accent-color: #20bd2a;
+  --border-color: #444;
 }
 
 body {
-  margin: auto;
-  max-width: 1200px;
+  margin: 0; 
   min-height: 100vh;
-  padding: 10px;
-  background-color: #131315;
-  color: #fff;
+  background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; /* From Layout.module.css, overriding default */
 }
 
 * {
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
+  box-sizing: border-box; /* Ensuring this is present */
 }
 
 a {
-  text-decoration: inherit;
-  color: inherit;
+  text-decoration: none; /* Changed from inherit */
+  color: var(--accent-color); /* Default link color from theme */
 }
+
+/* Specific link styling for footer in Layout.module.css will override this if needed */

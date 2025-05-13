@@ -1,9 +1,12 @@
-import HomePage from "./components/templates/homePage"
+import HomePage from "./components/templates/HomePage"; // Corrected casing for HomePage
+import Layout from "./components/layout/Layout";
 
 function App() {
 
   return (
-    <HomePage/>
+    <Layout>
+      <HomePage/>
+    </Layout>
   )
 }
 
