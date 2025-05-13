@@ -33,3 +33,22 @@
     border: 2px solid #404042;
     border-radius: 20px;
 }
+
+.chartTypeSelector {
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.chartTypeSelector button {
+  margin: 0 8px;
+  padding: 6px 12px;
+  border: none;
+  background-color: #ddd;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.chartTypeSelector button:hover {
+  background-color: #bbb;
+}
